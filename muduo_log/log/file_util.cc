@@ -46,6 +46,7 @@ void FileUtil::AppendFile::append(const char *logline, const size_t len) {
 }
 
 void FileUtil::AppendFile::flush() {
+    // FIXME: 需要修改writtenBytes_的值吧
     ::fflush(fp_); //只是触发了write的调用，这里没有调用fsync，通过fd = fileno(fp_) 转fd，调用fsync(fd)
     // int fd = fileno(fp_);
     // fsync(fd);       // 对应性能有一定的降低
